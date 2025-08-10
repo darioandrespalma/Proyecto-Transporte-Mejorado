@@ -1,14 +1,30 @@
-/* Variables CSS */
 :root {
-    --primary-color: #007BFF;
-    --primary-dark: #0056b3;
-    --secondary-color: #28a745;
-    --light-bg: #f8f9fa;
-    --dark-color: #343a40;
-    --text-md: 16px;
-    --text-lg: 24px;
+    /* Colores */
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #059669;
+    --dark-color: #1f2937;
+    --light-color: #f9fafb;
+    --light-bg: #f3f4f6;
+    --gray-color: #6b7280;
+    --danger-color: #dc2626;
+    
+    /* Espaciados */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    
+    /* Tipografía */
+    --text-sm: 1.2rem;
+    --text-md: 1.6rem;
+    --text-lg: 2rem;
+    --text-xl: 2.4rem;
+    --text-xxl: 3.2rem;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
 }

@@ -1,16 +1,59 @@
-.reservations-view {
-    padding: var(--space-lg);
-}
-
-.reservations-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.reservation-form-container {
+.reservations-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/train.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
     margin-bottom: var(--space-lg);
 }
 
+.reservations-hero h2 {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.reservations-hero p {
+    font-size: var(--text-lg);
+}
+
+.reservations-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.reservation-form-container,
 .reservations-list {
-    margin-top: var(--space-lg);
+    background: white;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.reservation-form-container h3,
+.reservations-list h3 {
+    margin-bottom: var(--space-md);
+    color: var(--primary-color);
+}
+
+.reservations-grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.reservation-item {
+    background: var(--light-bg);
+    padding: var(--space-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .reservations-container {
+        grid-template-columns: 1fr;
+    }
 }

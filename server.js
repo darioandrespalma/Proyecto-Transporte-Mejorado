@@ -5,6 +5,17 @@ import bodyParser from 'body-parser';
 const app = express();
 const port = 3000;
 
+
+// ✅ AGREGAR ESTO PARA CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+
+
 // Configuración de la base de datos
 const pool = new Pool({
   user: process.env.DB_USER || 'postgres',
