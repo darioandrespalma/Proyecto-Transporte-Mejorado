@@ -1,0 +1,16 @@
+.reservations-view {
+    padding: var(--space-lg);
+}
+
+.reservations-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-form-container {
+    margin-bottom: var(--space-lg);
+}
+
+.reservations-list {
+    margin-top: var(--space-lg);
+}

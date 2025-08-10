@@ -1,0 +1,21 @@
+.app-footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md);
+}
+
+.footer-section {
+    flex: 1;
+    margin: var(--space-sm);
+}
+
+.social-icons a {
+    margin: 0 5px;
+}

@@ -1,0 +1,29 @@
+.vehicle-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: var(--space-md);
+}
+
+.card-actions {
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+.btn.reserve-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}

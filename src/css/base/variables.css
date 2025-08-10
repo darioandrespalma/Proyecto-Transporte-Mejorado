@@ -1,0 +1,14 @@
+/* Variables CSS */
+:root {
+    --primary-color: #007BFF;
+    --primary-dark: #0056b3;
+    --secondary-color: #28a745;
+    --light-bg: #f8f9fa;
+    --dark-color: #343a40;
+    --text-md: 16px;
+    --text-lg: 24px;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+}
