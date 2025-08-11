@@ -79,9 +79,8 @@ Proyecto Transporte/
 │   └── main.js          # Punto de entrada
 ├── .gitignore
 ├── index.html
-├── package-lock.json
 ├── package.json
-├── vite.config.js       # Configuración de Vite
+
 
 
 
