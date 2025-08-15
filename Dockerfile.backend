@@ -1,0 +1,16 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copiar package.json
+COPY backend/package*.json ./
+
+# Instalar dependencias
+RUN npm install
+
+# Copiar código
+COPY backend/ ./
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

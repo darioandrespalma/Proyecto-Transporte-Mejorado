@@ -1,0 +1,109 @@
+@import './base/reset.css';
+@import './base/variables.css';
+@import './components/header.css';
+@import './components/footer.css';
+@import './components/card.css';
+@import './components/form.css';
+@import './views/home.css';
+@import './views/about.css';
+@import './views/contact.css';
+@import './views/reservations.css';
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--text-md);
+    color: var(--dark-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: var(--space-lg) 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--text-md);
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-lg);
+    color: var(--dark-color);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .main-nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: var(--space-md);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .main-nav.active ul {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.4rem;
+    }
+    
+    .services-grid, .vehicles-grid {
+        grid-template-columns: 1fr;
+    }
+}

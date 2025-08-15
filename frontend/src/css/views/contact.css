@@ -1,0 +1,55 @@
+.contact-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/bus.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.contact-hero h2 {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.contact-hero p {
+    font-size: var(--text-lg);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.contact-info,
+.contact-form-container {
+    background: white;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-info h3,
+.contact-form-container h3 {
+    margin-bottom: var(--space-md);
+    color: var(--primary-color);
+}
+
+.contact-info p {
+    margin-bottom: var(--space-sm);
+}
+
+.map-container {
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
