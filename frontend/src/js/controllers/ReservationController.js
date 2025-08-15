@@ -22,6 +22,7 @@ export async function initReservationForm() {
     });
     
     // Manejar cambio de ruta
+<<<<<<< HEAD
 
     rutaSelect.addEventListener('change', async (e) => {
         const rutaId = e.target.value;
@@ -42,17 +43,32 @@ export async function initReservationForm() {
             }
             
             frecuenciaSelect.innerHTML = '<option value="">Selecciona una frecuencia</option>';
+=======
+    rutaSelect.addEventListener('change', async (e) => {
+        const frecuenciaSelect = document.getElementById('frecuencia');
+        frecuenciaSelect.innerHTML = '<option value="">Cargando horarios...</option>';
+        frecuenciaSelect.disabled = true;
+        
+        if (e.target.value) {
+            const frecuencias = await getFrecuencias(e.target.value);
+            frecuenciaSelect.innerHTML = '<option value="">Seleccione un horario...</option>';
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
             
             frecuencias.forEach(frecuencia => {
                 const option = document.createElement('option');
                 option.value = frecuencia.id;
+<<<<<<< HEAD
                 // Formatear la hora de salida para mejor visualización
                 const horaSalida = new Date(frecuencia.hora_salida);
                 option.textContent = `${horaSalida.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+=======
+                option.textContent = `${frecuencia.hora_salida} - ${frecuencia.hora_llegada} (${frecuencia.dias_semana})`;
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
                 frecuenciaSelect.appendChild(option);
             });
             
             frecuenciaSelect.disabled = false;
+<<<<<<< HEAD
         } catch (error) {
             console.error('Error:', error);
             frecuenciaSelect.innerHTML = '<option value="">Error al cargar frecuencias</option>';
@@ -90,6 +106,14 @@ export async function initReservationForm() {
 
 
         
+=======
+        } else {
+            frecuenciaSelect.innerHTML = '<option value="">Primero seleccione una ruta</option>';
+            frecuenciaSelect.disabled = true;
+        }
+    });
+    
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
     // Manejar cambio de frecuencia
     document.getElementById('frecuencia').addEventListener('change', async (e) => {
         const vehiculoSelect = document.getElementById('vehiculo');
@@ -192,6 +216,7 @@ function validateForm() {
     
     return isValid;
 }
+<<<<<<< HEAD
 function createBusSeatMap(busId, asientos) {
     const container = document.createElement('div');
     container.className = 'seat-map-container';
@@ -304,6 +329,8 @@ function updateSelectedSeats() {
         seatSelectionContainer.appendChild(selectedSeatsContainer);
     }
 }
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 
 function renderAsientos(asientos) {
     const asientosContainer = document.getElementById('asientos-container');
@@ -588,6 +615,13 @@ async function getFrecuenciaDetails(id) {
     return await response.json();
 }
 
+<<<<<<< HEAD
+=======
+async function getVehiculoDetails(id) {
+    const response = await fetch(`/api/vehiculos/${id}`);
+    return await response.json();
+}
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 
 // Función para agregar reserva (ahora correctamente exportada)
 export const addReservation = async (reservationData) => {

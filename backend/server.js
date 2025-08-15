@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 // Esta clase es el corazón del servidor backend.js, donde se configuran
 // los middlewares, las rutas y se inicia el servidor.
 // Arranca el servidor solo si la conexión a la base de datos es exitosa.
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from './middlewares/cors.js';
 import { errorHandler, notFoundHandler } from './middlewares/errorHandler.js';
+<<<<<<< HEAD
 //  Conexion a la base de datos
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 import pool from './models/db.js';
 
 // Importar rutas
@@ -17,12 +23,18 @@ import reservasRoutes from './routes/reservasRoutes.js';
 import pagosRoutes from './routes/pagosRoutes.js';
 import facturasRoutes from './routes/facturasRoutes.js';
 
+<<<<<<< HEAD
 // instancia principal del servidor.
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
+<<<<<<< HEAD
 
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors);

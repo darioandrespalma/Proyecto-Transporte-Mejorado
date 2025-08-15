@@ -1,5 +1,20 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
+<<<<<<< HEAD
+=======
+export const getBusesDestacados = async () => {
+  try {
+    const url = `${API_URL}/api/buses/destacados`;
+    console.log('Fetching buses from:', url); // Agrega esta línea para verificar la URL
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Error al obtener buses destacados');
+    return await response.json();
+  } catch (error) {
+    console.error('Error al obtener buses destacados:', error);
+    throw error;
+  }
+};
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const getRutas = async () => {
   try {
     const response = await fetch(`${API_URL}/api/rutas`);
@@ -14,7 +29,11 @@ export const getRutas = async () => {
 // Agregar esta función
 export const getBuses = async (rutaId) => {
   try {
+<<<<<<< HEAD
     const response = await fetch(`${API_URL}/api/buses/ruta/${rutaId}`);
+=======
+    const response = await fetch(`${API_URL}/api/buses/${rutaId}`);
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
     if (!response.ok) throw new Error('Error al obtener buses');
     return await response.json();
   } catch (error) {
@@ -22,10 +41,16 @@ export const getBuses = async (rutaId) => {
     throw error;
   }
 };
+<<<<<<< HEAD
 
 export const getFrecuencias = async (rutaId) => {
   try {
     const response = await fetch(`${API_URL}/api/rutas/${rutaId}/frecuencias`);
+=======
+export const getFrecuencias = async (rutaId) => {
+  try {
+    const response = await fetch(`${API_URL}/api/frecuencias/${rutaId}`);
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
     if (!response.ok) throw new Error('Error al obtener frecuencias');
     return await response.json();
   } catch (error) {
@@ -35,6 +60,7 @@ export const getFrecuencias = async (rutaId) => {
 };
 
 
+<<<<<<< HEAD
 
 export const getAsientos = async (busId) => {
   try {
@@ -65,6 +91,13 @@ export const getAsientos = async (busId) => {
     });
     
     return data;
+=======
+export const getAsientos = async (vehiculoId) => {
+  try {
+    const response = await fetch(`${API_URL}/api/asientos/${vehiculoId}`);
+    if (!response.ok) throw new Error('Error al obtener asientos');
+    return await response.json();
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
   } catch (error) {
     console.error('Error al obtener asientos:', error);
     throw error;

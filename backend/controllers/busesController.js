@@ -1,15 +1,38 @@
 import pool from '../models/db.js';
 
+<<<<<<< HEAD
+=======
+export const getBusesDestacados = async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT b.id, b.numero_bus, b.capacidad, r.nombre as ruta_nombre, r.id as ruta_id
+      FROM buses b 
+      JOIN rutas r ON b.ruta_id = r.id 
+      ORDER BY RANDOM()
+      LIMIT 3
+    `);
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error en buses destacados:', err);
+    res.status(500).json({ error: 'Error al obtener buses destacados' });
+  }
+};
+
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const getBusesPorRuta = async (req, res) => {
   try {
     const { rutaId } = req.params;
     
     const result = await pool.query(
+<<<<<<< HEAD
       `SELECT b.*, r.nombre as ruta_nombre 
        FROM buses b
        JOIN rutas r ON b.ruta_id = r.id
        WHERE b.ruta_id = $1 
        ORDER BY b.numero_bus`,
+=======
+      'SELECT * FROM buses WHERE ruta_id = $1 ORDER BY numero_bus',
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
       [rutaId]
     );
     

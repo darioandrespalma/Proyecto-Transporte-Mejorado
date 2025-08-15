@@ -1,7 +1,15 @@
+<<<<<<< HEAD
+=======
+import { renderHome } from '../views/HomeView.js';
+import { renderAbout } from '../views/AboutView.js';
+import { renderContact } from '../views/ContactView.js';
+import { renderReservations } from '../views/ReservationsView.js';  // ✅ CORRECTO
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 import { createHeader } from '../components/Header.js';
 import { createFooter } from '../components/Footer.js';
 
 const routes = {
+<<<<<<< HEAD
   '/': () => import('../views/HomeView.js').then(m => m.renderHome()),
   '/about': () => import('../views/AboutView.js').then(m => m.renderAbout()),
   '/contact': () => import('../views/ContactView.js').then(m => m.renderContact()),
@@ -46,5 +54,55 @@ export async function router() {
 }
 
 // Iniciar router
+=======
+    '/': renderHome,
+    '/about': renderAbout,
+    '/contact': renderContact,
+    '/reservations': renderReservations  // ✅ CORRECTO
+};
+
+export async function router() {
+    const app = document.getElementById('app');
+    app.innerHTML = ''; // Limpiar contenido
+    
+    // Obtener ruta actual
+    const path = window.location.hash.replace('#', '') || '/';
+    
+    // Renderizar header
+    const header = createHeader();
+    app.appendChild(header);
+    
+    // Renderizar vista
+    const view = routes[path];
+    if (view) {
+        const main = await view();
+        app.appendChild(main);
+    } else {
+        app.innerHTML = '<h2>Página no encontrada</h2>';
+    }
+    
+    // Renderizar footer
+    const footer = createFooter();
+    app.appendChild(footer);
+    
+    // Manejar clics en enlaces
+    document.querySelectorAll('[data-link]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const path = link.getAttribute('href').replace('#', '');
+            window.location.hash = path;
+        });
+    });
+    
+    // Manejar menú móvil
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    }
+}
+
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);

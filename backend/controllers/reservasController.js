@@ -120,8 +120,11 @@ export const crearReserva = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // ----------------------------------------------------------------------------------------------------------------------------
 
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 // Función auxiliar para obtener datos completos de reserva
 async function getReservaCompleta(reservaId) {
   const result = await pool.query(`
@@ -133,6 +136,10 @@ async function getReservaCompleta(reservaId) {
            b.numero_bus,
            b.capacidad as bus_capacidad,
            fr.hora_salida,
+<<<<<<< HEAD
+=======
+           fr.hora_llegada,
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
            rt.nombre as ruta_nombre
     FROM reservas r
     JOIN pasajeros p ON r.pasajero_id = p.id
@@ -145,8 +152,11 @@ async function getReservaCompleta(reservaId) {
   return result.rows[0];
 }
 
+<<<<<<< HEAD
 
 // Controladores para ver si una reserva existe, obtener reservas por pasajero, confirmar pago y cancelar reserva
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const getReservaById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -164,9 +174,12 @@ export const getReservaById = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // -----------------------------------------------------------------------------------------------------------------------------
 // Lista todas las reservas de un pasajero especifico, incluyendo informacion de bus y hora de salida
 // -----------------------------------------------------------------------------------------------------------------------------
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const getReservasByPasajero = async (req, res) => {
   try {
     const { pasajeroId } = req.params;
@@ -188,10 +201,13 @@ export const getReservasByPasajero = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 
 // -----------------------------------------------------------------------------------------------------------------------------
 // Controladores para confirmar pago y cancelar reserva
 // -----------------------------------------------------------------------------------------------------------------------------
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const confirmarPago = async (req, res) => {
   try {
     const { reservaId } = req.body;
@@ -219,7 +235,10 @@ export const confirmarPago = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 export const cancelarReserva = async (req, res) => {
   try {
     const { reservaId } = req.params;

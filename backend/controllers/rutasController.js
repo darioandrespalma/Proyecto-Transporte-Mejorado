@@ -41,7 +41,11 @@ export const getFrecuenciasPorRuta = async (req, res) => {
     
     // Obtener frecuencias
     const result = await pool.query(
+<<<<<<< HEAD
       `SELECT id, ruta_id, hora_salida
+=======
+      `SELECT id, ruta_id, hora_salida, hora_llegada, dias_semana 
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
        FROM frecuencias 
        WHERE ruta_id = $1 
        ORDER BY hora_salida`,

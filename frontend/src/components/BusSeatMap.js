@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function createBusSeatMap(asientos) {
     // Validación inicial
     if (!Array.isArray(asientos)) {
@@ -31,12 +32,28 @@ export function createBusSeatMap(asientos) {
             asiento.fila = '0'; // Valor por defecto
         }
         
+=======
+export function createBusSeatMap(busId, asientos) {
+    const container = document.createElement('div');
+    container.className = 'bus-seat-map';
+    
+    // Agrupar asientos por fila
+    const filas = {};
+    asientos.forEach(asiento => {
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
         if (!filas[asiento.fila]) {
             filas[asiento.fila] = [];
         }
         filas[asiento.fila].push(asiento);
     });
     
+<<<<<<< HEAD
+=======
+    // Crear visualización de asientos
+    const busLayout = document.createElement('div');
+    busLayout.className = 'bus-layout';
+    
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
     // Mostrar pasillo
     const pasillo = document.createElement('div');
     pasillo.className = 'pasillo';
@@ -107,6 +124,7 @@ export function createBusSeatMap(asientos) {
         const selectedSeats = getSelectedSeats();
         const selectedSeatsContainer = document.getElementById('asientos-seleccionados');
         
+<<<<<<< HEAD
         if (selectedSeatsContainer) {
             if (selectedSeats.length > 0) {
                 selectedSeatsContainer.innerHTML = `
@@ -117,13 +135,27 @@ export function createBusSeatMap(asientos) {
             } else {
                 selectedSeatsContainer.innerHTML = '';
             }
+=======
+        if (selectedSeats.length > 0) {
+            selectedSeatsContainer.innerHTML = `
+                <p>Asientos seleccionados: ${selectedSeats
+                    .map(seat => seat.numero_asiento)
+                    .join(', ')}</p>
+            `;
+        } else {
+            selectedSeatsContainer.innerHTML = '';
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
         }
     };
     
     return {
         container,
         getSelectedSeats,
+<<<<<<< HEAD
         clearSelection,
         render: () => container
+=======
+        clearSelection
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
     };
 }

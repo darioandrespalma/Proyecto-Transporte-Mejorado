@@ -180,6 +180,13 @@ export async function renderReservations() {
                     </div>
                 </div>
                 
+<<<<<<< HEAD
+=======
+                <!-- Loading simplificado -->
+                <div id="loadingIndicator" class="loading" hidden>
+                    <div class="spinner"></div>
+                </div>
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
             </div>
         `;
         
@@ -197,9 +204,12 @@ export async function renderReservations() {
     return main;
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
 function initializeReservationFlow(main) {
     // Elementos del DOM
     const step1 = main.querySelector('#step1');
@@ -384,7 +394,12 @@ function initializeReservationFlow(main) {
         }
     });
     
+<<<<<<< HEAD
         frecuenciaSelect.addEventListener('change', async (e) => {
+=======
+    // Cargar buses cuando se selecciona una frecuencia
+    frecuenciaSelect.addEventListener('change', async (e) => {
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
         const frecuenciaId = e.target.value;
         const rutaId = rutaSelect.value;
         
@@ -411,6 +426,7 @@ function initializeReservationFlow(main) {
             mostrarError('frecuencia', 'Error al cargar buses');
         }
     });
+<<<<<<< HEAD
 
 
 
@@ -520,6 +536,75 @@ e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
 nextToTravel.addEventListener('click', () => {
 if (validarPasajero()) {
 goToStep(2);
+=======
+    
+    // Cargar mapa de asientos cuando se selecciona un bus
+    busSelect.addEventListener('change', async (e) => {
+        const busId = e.target.value;
+        seatSelectionContainer.innerHTML = '<p>Cargando mapa de asientos...</p>';
+        
+        if (!busId) return;
+        
+        try {
+            const asientos = await getAsientos(busId);
+            seatMap = createBusSeatMap(busId, asientos);
+            seatSelectionContainer.innerHTML = '';
+            seatSelectionContainer.appendChild(seatMap.container);
+            mostrarError('asientos', '');
+        } catch (error) {
+            console.error('Error:', error);
+            seatSelectionContainer.innerHTML = '<p>Error al cargar mapa de asientos</p>';
+            mostrarError('bus', 'Error al cargar asientos');
+        }
+    });
+    
+    // Manejar métodos de pago
+    metodoPagoRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            transferenciaFields.hidden = e.target.value !== 'transferencia';
+            tarjetaFields.hidden = e.target.value !== 'tarjeta';
+        });
+    });
+    
+    // Formatear número de tarjeta
+    const numeroTarjeta = main.querySelector('#numero_tarjeta');
+    numeroTarjeta?.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 16) value = value.substring(0, 16);
+        
+        let formatted = '';
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) formatted += ' ';
+            formatted += value[i];
+        }
+        
+        e.target.value = formatted;
+    });
+    
+    // Formatear fecha de vencimiento
+    const fechaVencimiento = main.querySelector('#fecha_vencimiento');
+    fechaVencimiento?.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 4) value = value.substring(0, 4);
+        
+        if (value.length >= 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2);
+        }
+        
+        e.target.value = value;
+    });
+    
+    // Validar CVV
+    const cvv = main.querySelector('#cvv');
+    cvv?.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+    });
+    
+    // Event listeners de navegación
+    nextToTravel.addEventListener('click', () => {
+        if (validarPasajero()) {
+            goToStep(2);
+>>>>>>> 739dbbe05f5b7b02ebcc0a76f3be2ae1cba03cf8
         }
     });
     
